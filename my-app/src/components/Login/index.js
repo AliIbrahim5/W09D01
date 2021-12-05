@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./style.css"
 const URL = "http://localhost:5000";
 
 
@@ -32,16 +33,24 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <section className="section-login vvv">
+    <div className="login-box">
+    <form  className={"form"}>
       <form onSubmit={login}>
-        <label htmlFor="email">Email:</label>
+      <div className="input-field">
+        <p>Email:</p>
         <input type="email" name="email" />
-        <label htmlFor="password">Password:</label>
+        </div>
+        <div className="input-field">
+        <p >Password:</p>
         <input type="password" name="password" />
-        <button type="submit">Login</button>
+        </div>
+        <button type="submit" className="button">Login</button>
+      </form>
       </form>
       <p>{err}</p>
     </div>
+    </section>
   );
 };
 

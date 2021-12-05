@@ -53,11 +53,15 @@ const Post = () => {
   }, []);
 
   return (
+    <section className="section-login vvv">
+      <div className="login-box">
+      <form  className={"form"}>
     <div>
       <h1>tasks:</h1>
       {data.map((item) => {
         return (
           <>
+          
             <h2 style={{ display: "inline" }}>{item.name}</h2>
             <button onClick={(_id) => del(item._id)}>x</button>
             <br />
@@ -66,6 +70,7 @@ const Post = () => {
       })}
       <form onSubmit={tasks}>
         <p>New tsks:</p>
+        
         <input type="text" name="task" />
         <button type="submit">Add</button>
       </form>
@@ -77,6 +82,9 @@ const Post = () => {
         Back
       </button>
     </div>
+    </form>
+    </div>
+    </section>
   );
 };
 
