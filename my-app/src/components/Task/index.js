@@ -30,7 +30,7 @@ const Post = () => {
     }
   };
 
-  const newTodo = async (e) => {
+  const tasks = async (e) => {
     try {
       e.preventDefault();
       const result = await axios.post(`${URL}/task`,
@@ -64,8 +64,8 @@ const Post = () => {
           </>
         );
       })}
-      <form onSubmit={newTodo}>
-        <p>New todo:</p>
+      <form onSubmit={tasks}>
+        <p>New tsks:</p>
         <input type="text" name="task" />
         <button type="submit">Add</button>
       </form>
