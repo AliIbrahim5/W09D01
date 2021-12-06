@@ -6,9 +6,11 @@ const URL = "http://localhost:5000";
 
 
 const Login = () => {
+  
   const navigate = useNavigate();
   const [err, setErr] = useState("");
   const login = async (e) => {
+    e.preventDefault();
     try {
       e.preventDefault();
       const result = await axios.post(`${URL}/login`, {
@@ -20,9 +22,9 @@ const Login = () => {
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("role", result.data.result.role.role);
         if(result.data.result.role.role=='admin'){
-            navigate('/');
+          navigate("/Task");
         }else{
-            navigate("/Task");
+           
         }
       } else {
         setErr(result.data);
@@ -31,11 +33,12 @@ const Login = () => {
       console.log(error);
     }
   };
+  
 
   return (
-    <section className="section-login vvv">
+   
     <div className="login-box">
-    <form  className={"form"}>
+    
       <form onSubmit={login}>
       <div className="input-field">
         <p>Email:</p>
@@ -45,12 +48,13 @@ const Login = () => {
         <p >Password:</p>
         <input type="password" name="password" />
         </div>
-        <button type="submit" className="button">Login</button>
+        <button type="submit"  className="button">Login</button>
+        
       </form>
-      </form>
+      
       <p>{err}</p>
     </div>
-    </section>
+ 
   );
 };
 

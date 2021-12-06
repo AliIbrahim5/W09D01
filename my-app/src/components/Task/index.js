@@ -33,9 +33,10 @@ const Post = () => {
   const tasks = async (e) => {
     try {
       e.preventDefault();
-      const result = await axios.post(`${URL}/task`,
+      const result = await axios.post(
+        `${URL}/task`,
         {
-            name: e.target.task.value,
+          name: e.target.task.value,
         },
         {
           headers: { Authorization: `bearer ${token}` },
@@ -53,40 +54,36 @@ const Post = () => {
   }, []);
 
   return (
-    <section className="section-login vvv">
-      <div className="login-box">
-      <form  className={"form"}>
-    <div>
-      <h1>tasks:</h1>
-      {data.map((item) => {
-        return (
-          <>
-          
-            <h2 style={{ display: "inline" }}>{item.name}</h2>
-            <button onClick={(_id) => del(item._id)}>x</button>
-            <br />
-          </>
-        );
-      })}
-      <form onSubmit={tasks}>
-        <p>New tsks:</p>
-        
-        <input type="text" name="task" />
-        <button type="submit">Add</button>
-      </form>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Back
-      </button>
-    </div>
-    </form>
-    </div>
-    </section>
+    
+      
+        <div>
+          <h1>tasks:</h1>
+          {data.map((item) => {
+            return (
+              <>
+                <h2 style={{ display: "inline" }}>{item.name}</h2>
+                <button onClick={(_id) => del(item._id)}>x</button>
+                <br />
+              </>
+            );
+          })}
+          <form onSubmit={tasks}>
+            <p>New tsks:</p>
+
+            <input type="text" name="task" />
+            <button type="submit">Add</button>
+          </form>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Back
+          </button>
+        </div>
+      
+  
   );
 };
 
 export default Post;
-

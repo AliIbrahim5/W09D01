@@ -11,6 +11,7 @@ const Resgister = () => {
         const  result = await axios.post(`${URL}/resgister`,{
             email:logemail,
             password:logpassword,
+            role :logrole,
         })
        console.log(result);
     }
